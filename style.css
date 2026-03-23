@@ -1,0 +1,356 @@
+:root {
+	/* # Variáveis principais de cores para facilitar ajustes de tema */
+	--bg-1: #2f1238;
+	--bg-2: #4c1d5c;
+	--pink-1: #ff6fbe;
+	--pink-2: #ffc4e8;
+	--yellow-1: #ffe06f;
+	--cyan-1: #ff9fdf;
+	--text-main: #fff5fc;
+	--text-dark: #2b1232;
+	--panel: #522063;
+	--panel-border: #ff8fd2;
+	--shadow-pixel: 6px 6px 0 #000000;
+}
+
+* {
+	/* # Remove espaçamentos padrão e melhora consistência de layout */
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	/* # Define estilo base da página e fundo com gradiente */
+	min-height: 100vh;
+	font-family: "VT323", monospace;
+	color: var(--text-main);
+	background: radial-gradient(circle at 20% 10%, #6d2f7e 0%, var(--bg-1) 36%, var(--bg-2) 100%);
+	overflow-x: hidden;
+}
+
+.bg-layer {
+	/* # Cria um padrão quadriculado para lembrar jogo retrô */
+	position: fixed;
+	inset: 0;
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+	background-size: 24px 24px;
+	pointer-events: none;
+	z-index: -1;
+}
+
+.topbar {
+	/* # Cabeçalho alinhado com espaçamento entre logo e botão */
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 5vw;
+}
+
+.topbar-actions {
+	/* # Agrupa botões de navegação no canto direito */
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.logo {
+	/* # Tipografia pixel para reforçar o tema gamer */
+	font-family: "Press Start 2P", cursive;
+	font-size: clamp(1rem, 2.4vw, 1.6rem);
+	color: var(--pink-2);
+	text-shadow: 3px 3px 0 #000;
+}
+
+main {
+	/* # Define largura máxima agradável em telas grandes */
+	width: min(1100px, 92vw);
+	margin: 0 auto 50px;
+}
+
+.hero {
+	/* # Layout principal com duas colunas adaptável */
+	display: grid;
+	grid-template-columns: 1.2fr minmax(260px, 360px);
+	gap: 30px;
+	align-items: center;
+	margin-top: 30px;
+}
+
+.hero-avatar-wrap {
+	/* # Moldura com borda e sombra pixel da imagem principal */
+	border: 4px solid var(--panel-border);
+	background: #6e2f84;
+	padding: 12px;
+	box-shadow: var(--shadow-pixel);
+	justify-self: end;
+}
+
+.hero-avatar {
+	/* # Imagem responsiva ocupando toda a moldura */
+	width: 100%;
+	display: block;
+	image-rendering: pixelated;
+}
+
+.hero-content {
+	/* # Caixa de conteúdo com aparência de painel de jogo */
+	border: 4px solid var(--panel-border);
+	background: linear-gradient(180deg, #5c2970 0%, #3c1b49 100%);
+	padding: 24px;
+	box-shadow: var(--shadow-pixel);
+}
+
+.tagline {
+	/* # Destaque curto acima do título principal */
+	color: var(--cyan-1);
+	letter-spacing: 1px;
+	font-size: clamp(1rem, 2vw, 1.2rem);
+	margin-bottom: 12px;
+}
+
+.hero-content h2 {
+	/* # Título principal com fonte retrô */
+	font-family: "Press Start 2P", cursive;
+	font-size: clamp(1.2rem, 3vw, 2rem);
+	line-height: 1.4;
+	color: var(--yellow-1);
+	margin-bottom: 16px;
+}
+
+.hero-description {
+	/* # Texto descritivo com boa legibilidade */
+	font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+	line-height: 1.5;
+	margin-bottom: 24px;
+}
+
+.hero-actions,
+.donation-actions {
+	/* # Agrupa botões com quebra de linha quando necessário */
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.donations {
+	/* # Bloco da seção de apoio financeiro */
+	margin-top: 20px;
+	padding-top: 16px;
+	border-top: 2px dashed #ff9ccc80;
+}
+
+.donations h3 {
+	/* # Título da seção de doações */
+	font-family: "Press Start 2P", cursive;
+	font-size: clamp(0.8rem, 2vw, 1rem);
+	color: var(--pink-2);
+	margin-bottom: 14px;
+}
+
+.pixel-btn {
+	/* # Estilo base dos botões com cara de sprite retrô */
+	border: 3px solid #000;
+	background: #ffe4f2;
+	color: var(--text-dark);
+	font-family: "Press Start 2P", cursive;
+	font-size: 0.7rem;
+	text-decoration: none;
+	padding: 12px 16px;
+	box-shadow: 4px 4px 0 #000;
+	transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.pixel-btn:hover,
+.pixel-btn:focus-visible {
+	/* # Efeito de botão "pressionado" ao passar mouse ou focar */
+	transform: translate(2px, 2px);
+	box-shadow: 2px 2px 0 #000;
+}
+
+.pixel-btn-primary {
+	/* # Variação principal para ação de convite */
+	background: linear-gradient(180deg, #ff91cb 0%, #ff6fbe 100%);
+	color: #2a0f34;
+	border-color: #000;
+}
+
+.hero-actions .pixel-btn-primary {
+	/* # Deixa o botão principal da home maior e mais chamativo */
+	font-size: 1.1rem;
+	padding: 20px 34px;
+	box-shadow: 6px 6px 0 #000;
+}
+
+.invite-mega {
+	/* # CTA principal no padrão de landing page de bot */
+	min-width: 390px;
+	text-align: center;
+	letter-spacing: 0.6px;
+}
+
+.pixel-btn-donate {
+	/* # Variação para botões de doação */
+	background: var(--pink-1);
+	color: #2a0f34;
+}
+
+.pixel-btn-small {
+	/* # Variação compacta para o cabeçalho */
+	font-size: 0.6rem;
+	padding: 10px 12px;
+}
+
+.command-panel {
+	/* # Caixa da seção interativa de comandos */
+	margin-top: 40px;
+	border: 4px solid var(--panel-border);
+	background: #3b1a49;
+	padding: 24px;
+	box-shadow: var(--shadow-pixel);
+}
+
+.command-panel h2 {
+	/* # Título da seção de comandos */
+	font-family: "Press Start 2P", cursive;
+	font-size: clamp(1rem, 2.8vw, 1.4rem);
+	color: var(--cyan-1);
+}
+
+.command-panel p {
+	/* # Texto introdutório da seção */
+	font-size: 1.3rem;
+	margin: 12px 0 16px;
+}
+
+.command-tabs {
+	/* # Linha de abas para categorias */
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-bottom: 16px;
+}
+
+.tab-btn {
+	/* # Estilo dos botões de categoria */
+	border: 3px solid #000;
+	background: #ffd8ec;
+	color: #2a0f34;
+	font-family: "Press Start 2P", cursive;
+	font-size: 0.62rem;
+	padding: 10px 12px;
+	cursor: pointer;
+	box-shadow: 4px 4px 0 #000;
+}
+
+.tab-btn.is-active {
+	/* # Estado ativo para mostrar aba selecionada */
+	background: var(--cyan-1);
+}
+
+.command-output {
+	/* # Painel onde os comandos aparecem */
+	border: 3px solid #000;
+	background: #2a1335;
+	padding: 14px;
+	min-height: 160px;
+	font-size: 1.35rem;
+	line-height: 1.5;
+}
+
+.footer {
+	/* # Rodapé centralizado no final da página */
+	text-align: center;
+	padding: 20px;
+	font-size: 1.2rem;
+	color: #ffc2e1;
+}
+
+.commands-main {
+	/* # Contêiner principal da página de documentação */
+	width: min(1100px, 92vw);
+	margin: 0 auto 50px;
+	display: grid;
+	gap: 20px;
+}
+
+.commands-hero,
+.commands-tools {
+	/* # Painéis reutilizáveis com borda pixel */
+	border: 4px solid var(--panel-border);
+	background: linear-gradient(180deg, #5c2970 0%, #3c1b49 100%);
+	padding: 20px;
+	box-shadow: var(--shadow-pixel);
+}
+
+.commands-hero h2 {
+	/* # Título principal da documentação */
+	font-family: "Press Start 2P", cursive;
+	font-size: clamp(1rem, 2.6vw, 1.5rem);
+	color: var(--yellow-1);
+	margin-bottom: 12px;
+}
+
+.commands-hero p {
+	/* # Texto explicativo da seção */
+	font-size: 1.35rem;
+	line-height: 1.45;
+}
+
+.commands-tools {
+	/* # Layout vertical dos controles de filtro */
+	display: grid;
+	gap: 12px;
+}
+
+.doc-filters {
+	/* # Linha de botões para seleção de categoria */
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.doc-filter-btn {
+	/* # Botão base para filtro de categoria */
+	border: 3px solid #000;
+	background: #ffd8ec;
+	color: #2a0f34;
+	font-family: "Press Start 2P", cursive;
+	font-size: 0.62rem;
+	padding: 10px 12px;
+	cursor: pointer;
+	box-shadow: 4px 4px 0 #000;
+}
+
+.doc-filter-btn.is-active {
+	/* # Estado ativo do filtro selecionado */
+	background: var(--cyan-1);
+}
+
+#commandsPageOutput {
+	/* # Dá um respiro acima da caixa de comandos na página secundária */
+	margin-top: 6px;
+}
+
+@media (max-width: 860px) {
+	/* # Ajusta layout para telas menores */
+	.hero {
+		grid-template-columns: 1fr;
+	}
+
+	.hero-avatar-wrap {
+		width: min(360px, 100%);
+		margin: 0 auto;
+		justify-self: center;
+	}
+
+	.invite-mega {
+		min-width: 100%;
+	}
+
+	.topbar-actions {
+		gap: 8px;
+	}
+}

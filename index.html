@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- # Define o idioma principal da página como português do Brasil -->
+<html lang="pt-BR">
+<head>
+	<!-- # Define a codificação para suportar acentos e caracteres especiais -->
+	<meta charset="UTF-8">
+	<!-- # Faz o site se adaptar corretamente em celular e tablet -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- # Título exibido na aba do navegador -->
+	<title>Moka Bot | Discord</title>
+	<!-- # Importa fontes com estilo retrô/pixel para o tema gamer -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+	<!-- # Conecta o arquivo principal de estilos -->
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<!-- # Camada de fundo decorativa com efeito pixel -->
+	<div class="bg-layer" aria-hidden="true"></div>
+
+	<!-- # Cabeçalho principal com nome e ação rápida -->
+	<header class="topbar">
+		<!-- # Nome da marca do bot -->
+		<h1 class="logo">MOKA BOT</h1>
+		<!-- # Grupo de ações rápidas no canto superior -->
+		<div class="topbar-actions">
+			<!-- # Link para a página de comandos completa -->
+			<a class="pixel-btn pixel-btn-small" href="páginas/comandos.html">COMANDOS</a>
+			<!-- # Botão de suporte ao lado do botão de comandos -->
+			<a class="pixel-btn pixel-btn-small" href="#" target="_blank" rel="noopener noreferrer">SUPORTE</a>
+		</div>
+	</header>
+
+	<!-- # Conteúdo principal da página -->
+	<main>
+		<!-- # Seção de destaque inicial (hero) -->
+		<section class="hero">
+			<!-- # Coluna com título, descrição e botões centrais -->
+			<div class="hero-content">
+				<!-- # Frase de impacto inicial -->
+				<p class="tagline">SEU BOT PIXEL PARA DOMINAR O DISCORD</p>
+				<!-- # Título principal da seção -->
+				<h2>Moka entrou no servidor!</h2>
+				<!-- # Texto explicando utilidade do bot -->
+				<p class="hero-description">
+					Moderação, diversão, utilidades e comandos interativos em um estilo retrô gamer.
+					Feita para deixar seu servidor vivo, organizado e com identidade.
+				</p>
+
+				<!-- # Grupo de botões principais centralizados -->
+				<div class="hero-actions">
+					<!-- # Botão principal para convidar o bot ao servidor -->
+					<a class="pixel-btn pixel-btn-primary invite-mega" href="#" target="_blank" rel="noopener noreferrer">CONVIDAR MOKA</a>
+				</div>
+
+				<!-- # Área de doações para manter o bot online -->
+				<div class="donations">
+					<!-- # Título curto da seção de apoio -->
+					<h3>MANTENHA A MOKA VIVA</h3>
+					<!-- # Botões de doação (você pode trocar os links depois) -->
+					<div class="donation-actions">
+						<a class="pixel-btn pixel-btn-donate" href="#" target="_blank" rel="noopener noreferrer">PIX</a>
+						<a class="pixel-btn pixel-btn-donate" href="#" target="_blank" rel="noopener noreferrer">APOIA.SE</a>
+						<a class="pixel-btn pixel-btn-donate" href="#" target="_blank" rel="noopener noreferrer">KO-FI</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- # Coluna com imagem da Moka (princesa Jujuba) em destaque lateral -->
+			<div class="hero-avatar-wrap">
+				<!-- # Imagem principal do bot com texto alternativo para acessibilidade -->
+				<img class="hero-avatar" src="imagens/moka.png" alt="Avatar da Moka com tema princesa">
+			</div>
+		</section>
+
+		<!-- # Seção interativa para pré-visualizar comandos -->
+		<section class="command-panel" id="comandos">
+			<!-- # Título da seção de comandos -->
+			<h2>COMANDOS EM TEMPO REAL</h2>
+			<!-- # Texto de apoio para orientar o usuário -->
+			<p>Escolha uma categoria para ver exemplos do que a Moka faz.</p>
+
+			<!-- # Botões que trocam as categorias via JavaScript -->
+			<div class="command-tabs" role="tablist" aria-label="Categorias de comandos">
+				<button class="tab-btn is-active" data-category="mod">MODERAÇÃO</button>
+				<button class="tab-btn" data-category="fun">DIVERSÃO</button>
+				<button class="tab-btn" data-category="util">UTILIDADES</button>
+			</div>
+
+			<!-- # Caixa onde os comandos selecionados são mostrados dinamicamente -->
+			<div class="command-output" id="commandOutput" aria-live="polite"></div>
+		</section>
+	</main>
+
+	<!-- # Rodapé simples com identidade da marca -->
+	<footer class="footer">
+		<p>Moka Bot © 2026 | Pixel power no seu servidor</p>
+	</footer>
+
+	<!-- # Conecta o arquivo de interações da página -->
+	<script src="script.js"></script>
+</body>
+</html>

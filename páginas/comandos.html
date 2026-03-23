@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- # Define idioma da página como português do Brasil -->
+<html lang="pt-BR">
+<head>
+	<!-- # Suporte a acentos e caracteres especiais -->
+	<meta charset="UTF-8">
+	<!-- # Layout responsivo para celular e desktop -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- # Título da aba do navegador -->
+	<title>Comandos | Moka Bot</title>
+	<!-- # Fontes retro/pixel para manter estética do site -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+	<!-- # Reutiliza o CSS global do projeto -->
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<!-- # Fundo decorativo padrão da identidade visual -->
+	<div class="bg-layer" aria-hidden="true"></div>
+
+	<!-- # Topo da página com navegação simples -->
+	<header class="topbar">
+		<!-- # Marca da Moka -->
+		<h1 class="logo">MOKA BOT</h1>
+		<!-- # Botão para voltar para a página inicial -->
+		<a class="pixel-btn pixel-btn-small" href="../index.html">INICIO</a>
+	</header>
+
+	<!-- # Área principal da documentação -->
+	<main class="commands-main">
+		<!-- # Cartão de introdução da página -->
+		<section class="commands-hero">
+			<h2>GUIA DE COMANDOS</h2>
+			<p>
+				Aqui ficam todos os comandos da Moka organizados por categoria.
+				Clique na categoria para trocar os comandos exibidos.
+			</p>
+		</section>
+
+		<!-- # Painel interativo por categoria sem campo de busca -->
+		<section class="commands-tools" aria-label="Filtros de comandos">
+			<!-- # Botões para trocar a categoria de comandos -->
+			<div class="doc-filters" role="tablist" aria-label="Filtro por categoria">
+				<button class="doc-filter-btn is-active" data-filter="mod">MODERACAO</button>
+				<button class="doc-filter-btn" data-filter="fun">DIVERSAO</button>
+				<button class="doc-filter-btn" data-filter="util">UTILIDADES</button>
+			</div>
+
+			<!-- # Área de saída com a lista da categoria selecionada -->
+			<div id="commandsPageOutput" class="command-output" aria-live="polite"></div>
+		</section>
+	</main>
+
+	<!-- # Rodapé simples da página -->
+	<footer class="footer">
+		<p>Moka Bot © 2026 | Documentacao de comandos</p>
+	</footer>
+
+	<!-- # Script geral com interacoes da home e da pagina de comandos -->
+	<script src="../script.js"></script>
+</body>
+</html>
