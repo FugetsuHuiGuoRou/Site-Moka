@@ -43,17 +43,29 @@ body {
 
 .topbar {
 	/* # Cabeçalho alinhado com espaçamento entre logo e botão */
-	display: flex;
+	display: grid;
+	grid-template-columns: auto 1fr;
 	align-items: center;
-	justify-content: space-between;
-	padding: 20px 5vw;
+	gap: 14px 28px;
+	padding: 14px 4vw 10px;
 }
 
 .topbar-actions {
 	/* # Agrupa botões de navegação no canto direito */
 	display: flex;
-	gap: 10px;
+	gap: 16px 14px;
 	align-items: center;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	padding-top: 2px;
+}
+
+.topbar-actions .pixel-btn-small {
+	/* # Padroniza tamanho dos botões do topo para melhorar leitura */
+	min-width: 122px;
+	text-align: center;
+	font-size: 0.5rem;
+	padding: 10px 14px;
 }
 
 .logo {
@@ -64,19 +76,35 @@ body {
 	text-shadow: 3px 3px 0 #000;
 }
 
+.logo-restart {
+	/* # Mantém visual do logo e adiciona interação de clique */
+	text-decoration: none;
+	background: none;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.logo-restart:focus-visible {
+	/* # Mostra foco acessível ao navegar por teclado */
+	outline: 2px dashed var(--pink-2);
+	outline-offset: 4px;
+}
+
 main {
 	/* # Define largura máxima agradável em telas grandes */
 	width: min(1100px, 92vw);
-	margin: 0 auto 50px;
+	margin: 10px auto 24px;
 }
 
 .hero {
 	/* # Layout principal com duas colunas adaptável */
 	display: grid;
 	grid-template-columns: 1.2fr minmax(260px, 360px);
-	gap: 30px;
+	gap: 20px;
 	align-items: center;
-	margin-top: 30px;
+	margin-top: 8px;
 }
 
 .hero-avatar-wrap {
@@ -99,7 +127,7 @@ main {
 	/* # Caixa de conteúdo com aparência de painel de jogo */
 	border: 4px solid var(--panel-border);
 	background: linear-gradient(180deg, #5c2970 0%, #3c1b49 100%);
-	padding: 24px;
+	padding: 20px;
 	box-shadow: var(--shadow-pixel);
 }
 
@@ -124,7 +152,7 @@ main {
 	/* # Texto descritivo com boa legibilidade */
 	font-size: clamp(1.1rem, 2.5vw, 1.5rem);
 	line-height: 1.5;
-	margin-bottom: 24px;
+	margin-bottom: 18px;
 }
 
 .hero-actions,
@@ -137,8 +165,8 @@ main {
 
 .donations {
 	/* # Bloco da seção de apoio financeiro */
-	margin-top: 20px;
-	padding-top: 16px;
+	margin-top: 16px;
+	padding-top: 12px;
 	border-top: 2px dashed #ff9ccc80;
 }
 
@@ -191,6 +219,191 @@ main {
 	letter-spacing: 0.6px;
 }
 
+.why-moka {
+	/* # Bloco de diferenciais da Moka abaixo do hero */
+	margin-top: 18px;
+	border: 4px solid var(--panel-border);
+	background: linear-gradient(180deg, #5c2970 0%, #3c1b49 100%);
+	padding: 20px;
+	box-shadow: var(--shadow-pixel);
+}
+
+.why-moka h2 {
+	/* # Título principal da seção de diferenciais */
+	font-family: "Press Start 2P", cursive;
+	font-size: clamp(1rem, 2.6vw, 1.5rem);
+	color: var(--yellow-1);
+	line-height: 1.5;
+}
+
+.why-moka-subtitle {
+	/* # Descrição curta para contextualizar os cards */
+	font-size: 1.32rem;
+	line-height: 1.45;
+	margin: 12px 0 16px;
+	max-width: 900px;
+}
+
+.feature-grid {
+	/* # Layout estilo diagrama: cards espalhados em pontos diferentes */
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	gap: 22px;
+	position: relative;
+	align-items: start;
+	padding: 12px 8px;
+}
+
+.feature-card {
+	/* # Card individual de funcionalidade */
+	border: 3px solid #000;
+	background: #331a43;
+	padding: 10px;
+	box-shadow: 4px 4px 0 #000;
+	--float-rot: 0deg;
+	--float-x: 0px;
+	--float-y: 0px;
+	transform: translate(var(--float-x), var(--float-y)) rotate(var(--float-rot));
+	transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.feature-card:hover,
+.feature-card:focus-within {
+	/* # Mantém interação visual sem perder o estilo retrô */
+	transform: translate(var(--float-x), calc(var(--float-y) - 3px)) rotate(var(--float-rot));
+	box-shadow: 6px 6px 0 #000;
+}
+
+.feature-card:nth-child(1) {
+	/* # Primeiro card: esquerda superior */
+	grid-column: 1 / span 4;
+	--float-rot: -2.8deg;
+	--float-x: -8px;
+	--float-y: 8px;
+}
+
+.feature-card:nth-child(2) {
+	/* # Segundo card: centro mais abaixo */
+	grid-column: 5 / span 4;
+	--float-rot: 0.6deg;
+	--float-x: 6px;
+	--float-y: 58px;
+}
+
+.feature-card:nth-child(3) {
+	/* # Terceiro card: direita altura intermediária */
+	grid-column: 9 / span 4;
+	--float-rot: 2.2deg;
+	--float-x: 10px;
+	--float-y: 24px;
+}
+
+.feature-card:nth-child(4) {
+	/* # Quarto card: segunda linha à esquerda */
+	grid-column: 1 / span 4;
+	grid-row: 2;
+	--float-rot: -0.3deg;
+	--float-x: -4px;
+	--float-y: 18px;
+}
+
+.feature-card:nth-child(5) {
+	/* # Quinto card: segunda linha no centro */
+	grid-column: 5 / span 4;
+	grid-row: 2;
+	--float-rot: 2.9deg;
+	--float-x: 7px;
+	--float-y: 52px;
+}
+
+.feature-card:nth-child(6) {
+	/* # Sexto card: segunda linha à direita */
+	grid-column: 9 / span 4;
+	grid-row: 2;
+	--float-rot: -2.4deg;
+	--float-x: -6px;
+	--float-y: 30px;
+}
+
+.feature-card:nth-child(7) {
+	/* # Sétimo card: terceira linha à esquerda */
+	grid-column: 1 / span 4;
+	grid-row: 3;
+	--float-rot: 1.8deg;
+	--float-x: 9px;
+	--float-y: 16px;
+}
+
+.feature-card:nth-child(8) {
+	/* # Oitavo card: terceira linha no centro */
+	grid-column: 5 / span 4;
+	grid-row: 3;
+	--float-rot: -0.4deg;
+	--float-x: -3px;
+	--float-y: 48px;
+}
+
+.feature-card:nth-child(9) {
+	/* # Nono card: terceira linha à direita */
+	grid-column: 9 / span 4;
+	grid-row: 3;
+	--float-rot: 2.5deg;
+	--float-x: 8px;
+	--float-y: 26px;
+}
+
+.feature-card:nth-child(10) {
+	/* # Décimo card: quarta linha à esquerda */
+	grid-column: 1 / span 4;
+	grid-row: 4;
+	--float-rot: -2.1deg;
+	--float-x: -7px;
+	--float-y: 14px;
+}
+
+.feature-card:nth-child(11) {
+	/* # Décimo primeiro card: quarta linha no centro */
+	grid-column: 5 / span 4;
+	grid-row: 4;
+	--float-rot: 0.5deg;
+	--float-x: 4px;
+	--float-y: 44px;
+}
+
+.feature-card:nth-child(12) {
+	/* # Décimo segundo card: quarta linha à direita */
+	grid-column: 9 / span 4;
+	grid-row: 4;
+	--float-rot: -2.7deg;
+	--float-x: -9px;
+	--float-y: 24px;
+}
+
+.feature-image {
+	/* # Imagem de preview da funcionalidade */
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	display: block;
+	border: 3px solid #000;
+	margin-bottom: 10px;
+}
+
+.feature-card h3 {
+	/* # Título curto da funcionalidade */
+	font-family: "Press Start 2P", cursive;
+	font-size: 0.66rem;
+	line-height: 1.5;
+	color: var(--pink-2);
+	margin-bottom: 8px;
+}
+
+.feature-card p {
+	/* # Resumo da funcionalidade em linguagem simples */
+	font-size: 1.2rem;
+	line-height: 1.4;
+}
+
 .pixel-btn-donate {
 	/* # Variação para botões de doação */
 	background: var(--pink-1);
@@ -199,8 +412,8 @@ main {
 
 .pixel-btn-small {
 	/* # Variação compacta para o cabeçalho */
-	font-size: 0.6rem;
-	padding: 10px 12px;
+	font-size: 0.55rem;
+	padding: 9px 11px;
 }
 
 .command-panel {
@@ -263,7 +476,7 @@ main {
 .footer {
 	/* # Rodapé centralizado no final da página */
 	text-align: center;
-	padding: 20px;
+	padding: 14px 20px 18px;
 	font-size: 1.2rem;
 	color: #ffc2e1;
 }
@@ -271,9 +484,9 @@ main {
 .commands-main {
 	/* # Contêiner principal da página de documentação */
 	width: min(1100px, 92vw);
-	margin: 0 auto 50px;
+	margin: 8px auto 22px;
 	display: grid;
-	gap: 20px;
+	gap: 14px;
 }
 
 .commands-hero,
@@ -302,7 +515,7 @@ main {
 .commands-tools {
 	/* # Layout vertical dos controles de filtro */
 	display: grid;
-	gap: 12px;
+	gap: 10px;
 }
 
 .doc-filters {
@@ -336,8 +549,56 @@ main {
 
 @media (max-width: 860px) {
 	/* # Ajusta layout para telas menores */
+	.topbar {
+		grid-template-columns: 1fr;
+		gap: 10px;
+		padding: 14px 4vw 8px;
+	}
+
+	.topbar-actions {
+		justify-content: flex-start;
+		gap: 10px;
+	}
+
 	.hero {
 		grid-template-columns: 1fr;
+		gap: 14px;
+		margin-top: 4px;
+	}
+
+	.why-moka {
+		margin-top: 14px;
+		padding: 16px;
+	}
+
+	.feature-grid {
+		/* # Em celular, volta para fluxo vertical para leitura fácil */
+		grid-template-columns: 1fr;
+		gap: 12px;
+		padding: 0;
+	}
+
+	.feature-grid::before {
+		display: none;
+	}
+
+	.feature-card,
+	.feature-card:nth-child(1),
+	.feature-card:nth-child(2),
+	.feature-card:nth-child(3),
+	.feature-card:nth-child(4),
+	.feature-card:nth-child(5),
+	.feature-card:nth-child(6),
+	.feature-card:nth-child(7),
+	.feature-card:nth-child(8),
+	.feature-card:nth-child(9),
+	.feature-card:nth-child(10),
+	.feature-card:nth-child(11),
+	.feature-card:nth-child(12) {
+		grid-column: auto;
+		grid-row: auto;
+		--float-rot: 0deg;
+		--float-y: 0px;
 	}
 
 	.hero-avatar-wrap {
@@ -348,9 +609,5 @@ main {
 
 	.invite-mega {
 		min-width: 100%;
-	}
-
-	.topbar-actions {
-		gap: 8px;
 	}
 }
