@@ -244,14 +244,59 @@ main {
 	max-width: 900px;
 }
 
-.feature-grid {
-	/* # Layout estilo diagrama: cards espalhados em pontos diferentes */
+.feature-carousel {
+	/* # Estrutura do carrossel em linha única */
 	display: grid;
-	grid-template-columns: repeat(12, minmax(0, 1fr));
-	gap: 22px;
-	position: relative;
-	align-items: start;
-	padding: 12px 8px;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+	gap: 10px;
+}
+
+.feature-nav {
+	/* # Botões laterais para navegar entre os cards */
+	border: 3px solid #000;
+	background: var(--yellow-1);
+	color: #2a0f34;
+	font-family: "Press Start 2P", cursive;
+	font-size: 0.9rem;
+	line-height: 1;
+	width: 44px;
+	height: 44px;
+	cursor: pointer;
+	box-shadow: 4px 4px 0 #000;
+	transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+
+.feature-nav:hover,
+.feature-nav:focus-visible {
+	transform: translateY(-2px);
+	box-shadow: 6px 6px 0 #000;
+	background: var(--cyan-1);
+	outline: none;
+}
+
+.feature-nav:active {
+	transform: translateY(1px);
+	box-shadow: 2px 2px 0 #000;
+}
+
+.feature-grid {
+	/* # Trilha horizontal de cards em uma fileira */
+	display: flex;
+	gap: 14px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding: 8px 2px 10px;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.feature-grid::-webkit-scrollbar {
+	/* # Esconde a barrinha cinza em navegadores WebKit */
+	display: none;
 }
 
 .feature-card {
@@ -260,123 +305,42 @@ main {
 	background: #331a43;
 	padding: 10px;
 	box-shadow: 4px 4px 0 #000;
-	--float-rot: 0deg;
-	--float-x: 0px;
-	--float-y: 0px;
-	transform: translate(var(--float-x), var(--float-y)) rotate(var(--float-rot));
-	transition: transform 140ms ease, box-shadow 140ms ease;
+	position: relative;
+	cursor: pointer;
+	flex: 0 0 min(280px, 82vw);
+	scroll-snap-align: start;
+	transform: translateY(0);
+	transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
 }
 
 .feature-card:hover,
 .feature-card:focus-within {
-	/* # Mantém interação visual sem perder o estilo retrô */
-	transform: translate(var(--float-x), calc(var(--float-y) - 3px)) rotate(var(--float-rot));
+	/* # Efeito de seleção: o card sobe como destaque */
+	transform: translateY(-8px);
 	box-shadow: 6px 6px 0 #000;
+	border-color: var(--yellow-1);
 }
 
-.feature-card:nth-child(1) {
-	/* # Primeiro card: esquerda superior */
-	grid-column: 1 / span 4;
-	--float-rot: -2.8deg;
-	--float-x: -8px;
-	--float-y: 8px;
+.feature-card::after {
+	/* # Setinha de foco/seleção no estilo game show */
+	content: ">";
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-family: "Press Start 2P", cursive;
+	font-size: 0.85rem;
+	line-height: 1;
+	color: var(--yellow-1);
+	opacity: 0.65;
+	transform: translateX(0);
+	transition: transform 140ms ease, opacity 140ms ease, color 140ms ease;
 }
 
-.feature-card:nth-child(2) {
-	/* # Segundo card: centro mais abaixo */
-	grid-column: 5 / span 4;
-	--float-rot: 0.6deg;
-	--float-x: 6px;
-	--float-y: 58px;
-}
-
-.feature-card:nth-child(3) {
-	/* # Terceiro card: direita altura intermediária */
-	grid-column: 9 / span 4;
-	--float-rot: 2.2deg;
-	--float-x: 10px;
-	--float-y: 24px;
-}
-
-.feature-card:nth-child(4) {
-	/* # Quarto card: segunda linha à esquerda */
-	grid-column: 1 / span 4;
-	grid-row: 2;
-	--float-rot: -0.3deg;
-	--float-x: -4px;
-	--float-y: 18px;
-}
-
-.feature-card:nth-child(5) {
-	/* # Quinto card: segunda linha no centro */
-	grid-column: 5 / span 4;
-	grid-row: 2;
-	--float-rot: 2.9deg;
-	--float-x: 7px;
-	--float-y: 52px;
-}
-
-.feature-card:nth-child(6) {
-	/* # Sexto card: segunda linha à direita */
-	grid-column: 9 / span 4;
-	grid-row: 2;
-	--float-rot: -2.4deg;
-	--float-x: -6px;
-	--float-y: 30px;
-}
-
-.feature-card:nth-child(7) {
-	/* # Sétimo card: terceira linha à esquerda */
-	grid-column: 1 / span 4;
-	grid-row: 3;
-	--float-rot: 1.8deg;
-	--float-x: 9px;
-	--float-y: 16px;
-}
-
-.feature-card:nth-child(8) {
-	/* # Oitavo card: terceira linha no centro */
-	grid-column: 5 / span 4;
-	grid-row: 3;
-	--float-rot: -0.4deg;
-	--float-x: -3px;
-	--float-y: 48px;
-}
-
-.feature-card:nth-child(9) {
-	/* # Nono card: terceira linha à direita */
-	grid-column: 9 / span 4;
-	grid-row: 3;
-	--float-rot: 2.5deg;
-	--float-x: 8px;
-	--float-y: 26px;
-}
-
-.feature-card:nth-child(10) {
-	/* # Décimo card: quarta linha à esquerda */
-	grid-column: 1 / span 4;
-	grid-row: 4;
-	--float-rot: -2.1deg;
-	--float-x: -7px;
-	--float-y: 14px;
-}
-
-.feature-card:nth-child(11) {
-	/* # Décimo primeiro card: quarta linha no centro */
-	grid-column: 5 / span 4;
-	grid-row: 4;
-	--float-rot: 0.5deg;
-	--float-x: 4px;
-	--float-y: 44px;
-}
-
-.feature-card:nth-child(12) {
-	/* # Décimo segundo card: quarta linha à direita */
-	grid-column: 9 / span 4;
-	grid-row: 4;
-	--float-rot: -2.7deg;
-	--float-x: -9px;
-	--float-y: 24px;
+.feature-card:hover::after,
+.feature-card:focus-within::after {
+	opacity: 1;
+	color: var(--cyan-1);
+	transform: translateX(4px);
 }
 
 .feature-image {
@@ -387,6 +351,11 @@ main {
 	display: block;
 	border: 3px solid #000;
 	margin-bottom: 10px;
+}
+
+.feature-image[src=""] {
+	/* # Evita ícone quebrado quando a imagem ainda não foi definida */
+	display: none;
 }
 
 .feature-card h3 {
@@ -547,6 +516,61 @@ main {
 	margin-top: 6px;
 }
 
+.faq-list {
+	/* # Lista vertical de perguntas expansíveis */
+	display: grid;
+	gap: 10px;
+}
+
+.faq-item {
+	/* # Bloco individual de pergunta e resposta */
+	border: 3px solid #000;
+	background: #331a43;
+	box-shadow: 4px 4px 0 #000;
+	padding: 0;
+}
+
+.faq-question {
+	/* # Mostra apenas a pergunta com clique para abrir */
+	list-style: none;
+	position: relative;
+	font-family: "Press Start 2P", cursive;
+	font-size: 0.66rem;
+	line-height: 1.5;
+	padding: 12px 34px 12px 12px;
+	cursor: pointer;
+	color: var(--pink-2);
+	user-select: none;
+}
+
+.faq-question::-webkit-details-marker {
+	display: none;
+}
+
+.faq-question::after {
+	/* # Setinha pequena no canto direito */
+	content: ">";
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	font-size: 0.65rem;
+	line-height: 1;
+	color: var(--yellow-1);
+	transition: transform 120ms ease;
+}
+
+.faq-item[open] .faq-question::after {
+	transform: rotate(90deg);
+}
+
+.faq-answer {
+	/* # Resposta só aparece após clique na pergunta */
+	margin: 0;
+	padding: 0 12px 12px;
+	font-size: 1.22rem;
+	line-height: 1.4;
+}
+
 @media (max-width: 860px) {
 	/* # Ajusta layout para telas menores */
 	.topbar {
@@ -572,33 +596,25 @@ main {
 	}
 
 	.feature-grid {
-		/* # Em celular, volta para fluxo vertical para leitura fácil */
-		grid-template-columns: 1fr;
+		/* # Em celular, mantém a fileira com scroll horizontal */
 		gap: 12px;
 		padding: 0;
 	}
 
-	.feature-grid::before {
-		display: none;
+	.feature-carousel {
+		grid-template-columns: 1fr;
+		gap: 8px;
 	}
 
-	.feature-card,
-	.feature-card:nth-child(1),
-	.feature-card:nth-child(2),
-	.feature-card:nth-child(3),
-	.feature-card:nth-child(4),
-	.feature-card:nth-child(5),
-	.feature-card:nth-child(6),
-	.feature-card:nth-child(7),
-	.feature-card:nth-child(8),
-	.feature-card:nth-child(9),
-	.feature-card:nth-child(10),
-	.feature-card:nth-child(11),
-	.feature-card:nth-child(12) {
+	.feature-nav {
+		width: 100%;
+		height: 38px;
+	}
+
+	.feature-card {
 		grid-column: auto;
 		grid-row: auto;
-		--float-rot: 0deg;
-		--float-y: 0px;
+		flex-basis: min(300px, 88vw);
 	}
 
 	.hero-avatar-wrap {
