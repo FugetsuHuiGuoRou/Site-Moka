@@ -487,6 +487,62 @@ main {
 	gap: 10px;
 }
 
+.goal-widget {
+	/* # Cartucho de progresso da meta com visual de HUD retrô */
+	display: grid;
+	gap: 8px;
+	max-width: 620px;
+}
+
+.goal-row {
+	/* # Barra e botão lado a lado */
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.goal-track {
+	/* # Trilha principal da barra de loading pixel */
+	position: relative;
+	flex: 1;
+	border: 3px solid #000;
+	background: #261231;
+	box-shadow: inset 0 0 0 3px #4b2160;
+	padding: 3px;
+	height: 26px;
+	overflow: hidden;
+}
+
+.goal-fill {
+	/* # Preenchimento da barra calculado via JavaScript */
+	width: 0;
+	height: 100%;
+	background: repeating-linear-gradient(
+		90deg,
+		var(--yellow-1) 0,
+		var(--yellow-1) 8px,
+		#f2c645 8px,
+		#f2c645 16px
+	);
+	box-shadow: inset 0 0 0 2px #000;
+	transition: width 420ms steps(24);
+}
+
+.goal-status {
+	/* # Texto da contagem no formato 1 / 50 */
+	font-family: "Press Start 2P", cursive;
+	font-size: 0.58rem;
+	line-height: 1.6;
+	color: var(--pink-2);
+}
+
+.goal-invite-btn {
+	/* # Botão pixel de convite alinhado ao bloco da meta */
+	font-size: 0.56rem;
+	padding: 10px 14px;
+	text-align: center;
+}
+
 .doc-filters {
 	/* # Linha de botões para seleção de categoria */
 	display: flex;
@@ -625,5 +681,14 @@ main {
 
 	.invite-mega {
 		min-width: 100%;
+	}
+
+	.goal-row {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.goal-invite-btn {
+		width: 100%;
 	}
 }

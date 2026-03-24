@@ -132,3 +132,28 @@ if (featureTrack && featurePrevBtn && featureNextBtn) {
 		{ passive: false }
 	);
 }
+
+// # Barra de progresso da meta da Moka (ex.: 1 / 50).
+const goalWidgets = document.querySelectorAll(".goal-widget");
+
+if (goalWidgets.length > 0) {
+	goalWidgets.forEach((widget) => {
+		const goalTrack = widget.querySelector(".goal-track");
+		const goalFill = widget.querySelector(".goal-fill");
+		const goalStatus = widget.querySelector(".goal-status");
+
+		if (!goalTrack || !goalFill || !goalStatus) return;
+
+		const current = Number(widget.dataset.current || "0");
+		const total = Number(widget.dataset.total || "1");
+		const safeTotal = total > 0 ? total : 1;
+		const safeCurrent = Math.max(0, Math.min(current, safeTotal));
+		const percent = (safeCurrent / safeTotal) * 100;
+
+		goalFill.style.width = `${percent}%`;
+		goalStatus.textContent = `${safeCurrent} / ${safeTotal} servidores`;
+		goalTrack.setAttribute("aria-valuemin", "0");
+		goalTrack.setAttribute("aria-valuemax", String(safeTotal));
+		goalTrack.setAttribute("aria-valuenow", String(safeCurrent));
+	});
+}
