@@ -30,7 +30,7 @@ const commandData = {
 	],
 	// # Categoria de mini-games para eventos e partidas rápidas.
 	mini: [
-		"m!!jokenpo | /jokenpo - pedra, papel ou tesoura contra o bot",
+		"m!!jokenpo | /jokenpo - pedra, papel ou tesoura contra outro usuário",
 		"m!!coin | /coin - sorteia cara ou coroa",
 		"m!!dados | /dados - gera um número aleatório de 1 a 6",
 		"m!!imparpar | /imparpar - ímpar ou par contra outro usuário"
