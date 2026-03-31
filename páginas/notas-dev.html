@@ -21,7 +21,7 @@
 			<a class="pixel-btn pixel-btn-small" href="comandos.html">COMANDOS</a>
 			<a class="pixel-btn pixel-btn-small" href="suporte.html">SUPORTE</a>
 			<a class="pixel-btn pixel-btn-small" href="apoiar-moka.html">APOIAR MOKA</a>
-			<a class="pixel-btn pixel-btn-small" href="sugestoes.html">SUGESTOES</a>
+			<a class="pixel-btn pixel-btn-small" href="sugestoes.html">SUGESTÕES</a>
 			<a class="pixel-btn pixel-btn-small" href="faq.html">FAQ</a>
 			<a class="pixel-btn pixel-btn-small" href="equipe.html">EQUIPE</a>
 			<a class="pixel-btn pixel-btn-small" href="notas-dev.html">NOTAS DO DEV</a>
@@ -31,13 +31,119 @@
 	<main class="commands-main">
 		<section class="commands-hero">
 			<h2>NOTAS DO DEV</h2>
-			<p>Registro de mudanças, ideias e progresso do desenvolvimento da Moka.</p>
+			<p>Registro oficial de mudanças e melhorias da Moka. Confira abaixo as atualizações.</p>
 		</section>
 
-		<section class="commands-tools">
-			<h3>LOG DE ATUALIZACOES</h3>
-			<p>24/03/2026 - Estrutura inicial da página de notas criada.</p>
-			<p>Edite este bloco com as suas notas reais de versões e melhorias.</p>
+		<section class="commands-tools devnotes-panel">
+			<h3>LOG DE ATUALIZAÇÕES</h3>
+
+			<article class="update-card" aria-label="Atualização 1.0">
+				<div class="update-card-top">
+					<h4>ATUALIZAÇÃO 1.0 - Moka Bot</h4>
+					<p class="update-date">18/03/2026</p>
+				</div>
+
+				<section class="update-block" aria-label="Novidades da versão 1.0">
+					<h5>NOVIDADES</h5>
+					<ul>
+						<li>Operações básicas de matemática.</li>
+						<li>Alguns comandos de moderação.</li>
+					</ul>
+				</section>
+
+				<section class="update-block" aria-label="Comandos por categoria">
+					<h5>COMANDOS (PREFIXOS: / E m!!)</h5>
+
+					<div class="command-category-grid">
+						<article class="command-category-card">
+							<h6>Math</h6>
+							<ul>
+								<li><strong>/sub</strong> e <strong>m!!sub</strong> - subtrai. Exemplo: <strong>m!!sub 3 2</strong> → resultado: <strong>1</strong>.</li>
+								<li><strong>/somar</strong> e <strong>m!!somar</strong> - soma. Exemplo: <strong>m!!somar 3 2</strong> → resultado: <strong>5</strong>.</li>
+								<li><strong>/div</strong> e <strong>m!!div</strong> - divisão. Exemplo: <strong>m!!div 8 2</strong> → resultado: <strong>4</strong>.</li>
+								<li><strong>/mult</strong> e <strong>m!!mult</strong> - multiplicação. Exemplo: <strong>m!!mult 3 2</strong> → resultado: <strong>6</strong>.</li>
+							</ul>
+						</article>
+
+						<article class="command-category-card">
+							<h6>Moderação</h6>
+							<ul>
+								<li><strong>/ping</strong> e <strong>m!!ping</strong> - verifica se o bot está online.</li>
+								<li>Controla quem entra e sai do servidor.</li>
+								<li>Controla quem entra e sai da call de voz.</li>
+								<li>Controla quem apaga as mensagens.</li>
+							</ul>
+						</article>
+					</div>
+				</section>
+			</article>
+
+			<article class="update-card" aria-label="Atualização 1.1">
+				<div class="update-card-top">
+					<h4>ATUALIZAÇÃO 1.1 - Moka Bot</h4>
+					<p class="update-date">24/03/2026</p>
+				</div>
+
+				<section class="update-block" aria-label="Novidades da versão 1.1">
+					<h5>NOVIDADES</h5>
+					<ul>
+						<li>Adicionamos mais comandos de moderação.</li>
+						<li>Adicionamos comandos novos.</li>
+						<li>Adicionamos mini-games.</li>
+					</ul>
+				</section>
+
+				<section class="update-block" aria-label="Comandos implementados na versão 1.1">
+					<h5>COMANDOS IMPLEMENTADOS</h5>
+
+					<div class="command-category-grid">
+						<article class="command-category-card">
+							<h6>Tradução</h6>
+							<ul>
+								<li><strong>m!!traduzir para binário</strong> - converte sua mensagem em código binário.</li>
+								<li><strong>m!!traduzir para morse</strong> - converte sua mensagem em código morse.</li>
+							</ul>
+						</article>
+
+						<article class="command-category-card">
+							<h6>Diversão</h6>
+							<ul>
+								<li><strong>m!!roubaravatar</strong> - pega a foto de perfil de outro usuário.</li>
+								<li><strong>m!!recomendaranime</strong> - recomenda um anime aleatório.</li>
+								<li><strong>m!!recomendarfilme</strong> - recomenda um filme aleatório.</li>
+							</ul>
+						</article>
+
+						<article class="command-category-card">
+							<h6>Mini Games</h6>
+							<ul>
+								<li><strong>m!!jokenpo</strong> - joga pedra, papel ou tesoura contra o bot.</li>
+								<li><strong>m!!coin</strong> - sorteia cara ou coroa.</li>
+								<li><strong>m!!dados</strong> - gera um número aleatório de 1 a 6.</li>
+								<li><strong>m!!imparpar</strong> - jogo de ímpar ou par contra outro usuário.</li>
+							</ul>
+						</article>
+
+						<article class="command-category-card">
+							<h6>Saúde e Utilidade</h6>
+							<ul>
+								<li><strong>m!!imc</strong> - calcula o índice de massa corporal com base no peso e altura.</li>
+								<li><strong>m!!agua</strong> - informe seu peso e a Moka calcula quantos ml de água você deve beber por dia. Informe somente o peso.</li>
+								<li><strong>m!!calcularsono</strong> - calcula se você dormiu bem de acordo com ciclos de sono. Digite o horário que dormiu e o horário que acordou.</li>
+							</ul>
+						</article>
+
+						<article class="command-category-card">
+							<h6>Moderação</h6>
+							<ul>
+								<li><strong>m!!update</strong> - verifica os updates e o que veio de novo no bot.</li>
+								<li><strong>m!!infoserver</strong> - informações do servidor.</li>
+								<li><strong>m!!infouser</strong> - informação do usuário marcado com @.</li>
+							</ul>
+						</article>
+					</div>
+				</section>
+			</article>
 		</section>
 	</main>
 

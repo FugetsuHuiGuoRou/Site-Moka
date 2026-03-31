@@ -487,6 +487,108 @@ main {
 	gap: 10px;
 }
 
+.devnotes-panel {
+	/* # Aumenta o espaçamento interno da área de notas de atualização */
+	gap: 14px;
+}
+
+.devnotes-panel > h3 {
+	/* # Título da seção de log em estilo retrô */
+	font-family: "Press Start 2P", cursive;
+	font-size: clamp(0.78rem, 2vw, 0.95rem);
+	line-height: 1.5;
+	color: var(--pink-2);
+}
+
+.update-card {
+	/* # Cartão principal da atualização */
+	border: 3px solid #000;
+	background: #31173f;
+	box-shadow: 4px 4px 0 #000;
+	padding: 14px;
+	display: grid;
+	gap: 12px;
+}
+
+.update-card-top {
+	/* # Cabeçalho da versão e data */
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.update-card-top h4 {
+	font-family: "Press Start 2P", cursive;
+	font-size: clamp(0.72rem, 1.8vw, 0.88rem);
+	line-height: 1.6;
+	color: var(--yellow-1);
+}
+
+.update-date {
+	font-size: 1.2rem;
+	color: #ffd7ef;
+}
+
+.update-block {
+	/* # Bloco de conteúdo com título e lista */
+	border: 2px solid #000;
+	background: #3b1b4d;
+	padding: 10px;
+	display: grid;
+	gap: 8px;
+}
+
+.update-block h5 {
+	font-family: "Press Start 2P", cursive;
+	font-size: clamp(0.62rem, 1.6vw, 0.74rem);
+	line-height: 1.6;
+	color: var(--cyan-1);
+}
+
+.update-block ul {
+	list-style: square;
+	padding-left: 20px;
+	display: grid;
+	gap: 6px;
+	font-size: 1.28rem;
+	line-height: 1.35;
+}
+
+.command-category-grid {
+	/* # Organiza categorias de comandos em colunas */
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
+}
+
+.command-category-card {
+	/* # Cartão individual de categoria */
+	border: 2px solid #000;
+	background: #2d1438;
+	padding: 10px;
+	box-shadow: 3px 3px 0 #000;
+	display: grid;
+	gap: 8px;
+}
+
+.command-category-card h6 {
+	font-family: "Press Start 2P", cursive;
+	font-size: 0.62rem;
+	line-height: 1.6;
+	color: var(--yellow-1);
+}
+
+.command-category-card ul {
+	list-style: square;
+	padding-left: 20px;
+	display: grid;
+	gap: 6px;
+	font-size: 1.2rem;
+	line-height: 1.35;
+}
+
 .goal-widget {
 	/* # Cartucho de progresso da meta com visual de HUD retrô */
 	display: grid;
@@ -690,5 +792,9 @@ main {
 
 	.goal-invite-btn {
 		width: 100%;
+	}
+
+	.command-category-grid {
+		grid-template-columns: 1fr;
 	}
 }
